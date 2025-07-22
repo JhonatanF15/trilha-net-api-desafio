@@ -55,4 +55,60 @@ Esse é o schema (model) de Tarefa, utilizado para passar para os métodos que e
 
 
 ## Solução
-O código está pela metade, e você deverá dar continuidade obedecendo as regras descritas acima, para que no final, tenhamos um programa funcional. Procure pela palavra comentada "TODO" no código, em seguida, implemente conforme as regras acima.
+A implementação do sistema de gerenciamento de tarefas foi concluída com sucesso! Todos os endpoints necessários foram implementados e testados.
+
+### Endpoints Implementados
+
+1. **Obter Tarefa por ID**
+   - **GET** `/Tarefa/{id}`
+   - Retorna os detalhes de uma tarefa específica
+   - Retorna 404 se a tarefa não for encontrada
+
+2. **Listar Todas as Tarefas**
+   - **GET** `/Tarefa/ObterTodos`
+   - Retorna uma lista com todas as tarefas cadastradas
+   - Retorna uma lista vazia se não houver tarefas
+
+3. **Buscar Tarefas por Título**
+   - **GET** `/Tarefa/ObterPorTitulo?titulo={titulo}`
+   - Busca tarefas que contenham o termo no título (case insensitive)
+   - Retorna uma lista de tarefas que correspondam ao critério
+
+4. **Buscar Tarefas por Data**
+   - **GET** `/Tarefa/ObterPorData?data={data}`
+   - Busca tarefas pela data especificada
+   - A data deve estar no formato ISO 8601 (ex: 2023-07-22)
+
+5. **Buscar Tarefas por Status**
+   - **GET** `/Tarefa/ObterPorStatus?status={status}`
+   - Busca tarefas pelo status (Pendente ou Finalizado)
+   - O status é case sensitive e deve corresponder ao enum
+
+6. **Criar Nova Tarefa**
+   - **POST** `/Tarefa`
+   - Cria uma nova tarefa
+   - O status padrão é definido como "Pendente" se não for informado
+   - Campos obrigatórios: título e data
+
+7. **Atualizar Tarefa Existente**
+   - **PUT** `/Tarefa/{id}`
+   - Atualiza uma tarefa existente
+   - Retorna 404 se a tarefa não for encontrada
+   - Valida os dados de entrada
+
+8. **Excluir Tarefa**
+   - **DELETE** `/Tarefa/{id}`
+   - Remove uma tarefa do sistema
+   - Retorna 204 No Content em caso de sucesso
+   - Retorna 404 se a tarefa não for encontrada
+
+### Testes
+
+Um arquivo `test-api.http` foi criado na raiz do projeto para facilitar os testes dos endpoints. Você pode usar este arquivo com o Visual Studio Code e a extensão REST Client para testar a API localmente.
+
+### Próximos Passos
+
+- Configurar autenticação e autorização, se necessário
+- Implementar paginação para listagens grandes
+- Adicionar mais filtros de busca, se necessário
+- Implementar documentação mais detalhada com Swagger/OpenAPI

@@ -1,0 +1,50 @@
+@baseUrl = https://localhost:5001
+
+### Obter todas as tarefas
+GET {{baseUrl}}/Tarefa/ObterTodos
+
+@baseUrl = http://localhost:5000
+
+### Buscar todas as tarefas
+GET {{baseUrl}}/Tarefa/ObterTodos
+
+### Buscar tarefa por ID
+GET {{baseUrl}}/Tarefa/1
+
+### Buscar tarefas por título
+GET {{baseUrl}}/Tarefa/ObterPorTitulo?titulo=reunião
+
+### Buscar tarefas por data
+GET {{baseUrl}}/Tarefa/ObterPorData?data=2023-07-22
+
+### Buscar tarefas por status (0=Pendente, 1=Finalizado)
+GET {{baseUrl}}/Tarefa/ObterPorStatus?status=0
+
+### Criar nova tarefa
+POST {{baseUrl}}/Tarefa
+Content-Type: application/json
+
+{
+  "titulo": "Reunião de planejamento",
+  "descricao": "Reunião para planejar o próximo sprint",
+  "data": "2023-07-25T09:00:00",
+  "status": 0
+}
+
+### Atualizar tarefa
+PUT {{baseUrl}}/Tarefa/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "titulo": "Reunião de planejamento atualizada",
+  "descricao": "Reunião para revisar o planejamento do sprint",
+  "data": "2023-07-25T10:00:00",
+  "status": 1
+}
+
+### Deletar tarefa
+DELETE {{baseUrl}}/Tarefa/1
+
+### Deletar tarefa
+DELETE {{baseUrl}}/Tarefa/1
